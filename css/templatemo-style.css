@@ -171,8 +171,8 @@ h1,h2,h3,h4,h5
 /* start home */       
 #home
 	{
-        background: url('../images/output-onlinepngtools\ \(1\).png');
-        background-size: cover;
+        background: url('../images/dp-white.png');
+        background-size: contain;
         background-repeat: no-repeat;
         padding-top: 120px;
         padding-bottom: 140px;

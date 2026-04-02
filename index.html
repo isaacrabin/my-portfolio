@@ -1,279 +1,936 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
+<head>
+  <meta charset="utf-8">
+  <title>Isaac Rabin | Full-Stack Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Isaac Rabin — Full-Stack Software Engineer specializing in React, Angular, NextJs, Node.js, Java Spring Boot, and .NET C#">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/templatemo-style.css">
+  <link rel="stylesheet" href="css/animate.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-		<title>Portfolio | Isaac Mrongo</title>
-		<meta name="keywords" content="">
-		<meta name="description" content="">
-        <meta name="author" content="templatemo">
-        <!-- 
-        Lavish HTML CSS Template
-        https://templatemo.com/tm-458-lavish
-        -->
-        
-		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #111118;
+      --bg3: #18181f;
+      --surface: #1e1e28;
+      --border: rgba(255,255,255,0.07);
+      --border2: rgba(255,255,255,0.13);
+      --accent: #6ee7b7;
+      --accent2: #818cf8;
+      --accent3: #fb7185;
+      --text: #f0f0f4;
+      --text2: #a0a0b8;
+      --text3: #606078;
+      --font-head: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
 
-		<!-- animate -->
-		<link rel="stylesheet" href="css/animate.min.css">
-		<!-- bootstrap -->
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<!-- font-awesome -->
-		<link rel="stylesheet" href="css/font-awesome.min.css">
-		<!-- google font -->
-		<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700,800' rel='stylesheet' type='text/css'>
-		<!-- fullpage -->
-		<link rel="stylesheet" href="css/jquery.fullPage.css">
-		<!-- custom -->
-		<link rel="stylesheet" href="css/templatemo-style.css">
+    html { scroll-behavior: smooth; }
 
-	</head>
-	<body>
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
 
-	<div id="fullpage">
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 3rem;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--accent); }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav ul a {
+      color: var(--text2);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    nav ul a:hover { color: var(--accent); }
+    .nav-cta {
+      background: transparent;
+      border: 1px solid var(--border2);
+      color: var(--text) !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 100px;
+      font-size: 0.82rem !important;
+      transition: border-color 0.2s, background 0.2s !important;
+    }
+    .nav-cta:hover { border-color: var(--accent) !important; background: rgba(110,231,183,0.08) !important; color: var(--accent) !important; }
 
-		<!-- start home -->
-		<div id="home" class="section">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-2"></div>
-					<div class="col-md-8 wow fadeIn" data-wow-delay="0.9s">
-						<!-- <h3>Simple and Elegant</h3> -->
-						<h1>Isaac Mrongo</h1>
-						<h2 class="rotate">REACT, ANGULAR, JAVA</h2>
-						<p>Exceptionally creative and
-							dependable Software
-							Developer with superb work
-							ethic and more than 4 years
-							of experience.</p>
-						<a href="#work" class="btn btn-default smoothScroll wow fadeInUp" data-wow-delay="1s">What I do</a>
-					</div>
-					<div class="col-md-2"></div>
-				</div>
-			</div>
-		</div>
-		<!-- end home -->
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      padding: 8rem 3rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-grid-bg {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(110,231,183,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(110,231,183,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-glow {
+      position: absolute; top: 20%; right: -10%;
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(129,140,248,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-glow2 {
+      position: absolute; bottom: 10%; left: -5%;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(110,231,183,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner { max-width: 900px; position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      border: 1px solid rgba(110,231,183,0.25);
+      background: rgba(110,231,183,0.06);
+      border-radius: 100px;
+      padding: 0.4rem 1rem;
+      font-size: 0.8rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      margin-bottom: 2rem;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent);
+      animation: blink 2s infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    .hero-name {
+      font-family: var(--font-head);
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.5rem;
+    }
+    .hero-name .line2 { color: var(--accent2); }
+    .hero-title {
+      font-size: 1.1rem;
+      color: var(--text2);
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+    .hero-title strong { color: var(--accent); font-weight: 500; }
+    .hero-desc {
+      max-width: 800px;
+      color: var(--text2);
+      font-size: 1rem;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+    .hero-stack {
+      display: flex; flex-wrap: wrap; gap: 0.6rem;
+      margin-bottom: 2.5rem;
+    }
+    .stack-chip {
+      border: 1px solid var(--border2);
+      background: var(--surface);
+      border-radius: 6px;
+      padding: 0.3rem 0.75rem;
+      font-size: 0.78rem;
+      color: var(--text2);
+      letter-spacing: 0.04em;
+      font-family: 'DM Mono', monospace;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .stack-chip:hover { border-color: var(--accent); color: var(--accent); }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--accent);
+      color: #0a0a0f;
+      border: none;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border2);
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.2s;
+      display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
-		<!-- start work -->
-		<div id="work" class="section">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 wow bounce">
-						<h2>WHAT I DO</h2>
-					</div>
-                </div>  
-                
-                <div class="row">					
-                    
-					<div class="col-md-4 col-xs-11 wow fadeInUp" data-wow-delay="0.6s">
-						<div class="media">
-							<div class="media-object media-left">
-								<i class="fa fa-code"></i>								
-							</div>
-							<div class="media-body">
-								<h3 class="media-heading">Angular</h3>
-								<p>I have a solid experience in Angular and I have built a number of client applications in Angular.</p>
-							</div>
-						</div>
-					</div>
-                    
-					<div class="col-md-4 col-xs-11 wow fadeInUp" data-wow-delay="0.6s">
-						<div class="media">
-							<div class="media-object media-left">
-								<i class="fa fa-code"></i>
-							</div>
-							<div class="media-body">
-								<h3 class="media-heading">Java</h3>
-								<p>I have used Java i.e. Spring Boot framework to build backend logic for my applications.</p>
-							</div>
-						</div>
-					</div>
+    /* ── SECTION COMMON ── */
+    section { padding: 6rem 3rem; }
+    .section-tag {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      font-weight: 500;
+    }
+    .section-title {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .section-sub {
+      color: var(--text2);
+      max-width: 540px;
+      margin-bottom: 3.5rem;
+      font-size: 1rem;
+    }
+    .container { max-width: 1100px; margin: 0 auto; }
 
-					<div class="col-md-4 col-xs-11 wow fadeInUp" data-wow-delay="0.6s">
-						<div class="media">
-							<div class="media-object media-left">
-								<i class="fa fa-code"></i>
-							</div>
-							<div class="media-body">
-								<h3 class="media-heading">React</h3>
-								<p>Just like Angular my experience with angular is also on point.</p>
-							</div>
-						</div>
-					</div>
-                    
-				</div>
-			</div>
-		</div>
-		<!-- end work -->
+    /* ── EXPERTISE ── */
+    #expertise { background: var(--bg2); }
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .expertise-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.2s;
+    }
+    .expertise-card:hover { border-color: var(--border2); transform: translateY(-3px); }
+    .expertise-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    }
+    .expertise-card.fe::before { background: linear-gradient(90deg, var(--accent2), transparent); }
+    .expertise-card.be::before { background: linear-gradient(90deg, var(--accent), transparent); }
+    .expertise-card.devops::before { background: linear-gradient(90deg, var(--accent3), transparent); }
+    .card-icon {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .card-title {
+      font-family: var(--font-head);
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .card-desc { color: var(--text2); font-size: 0.9rem; margin-bottom: 1.25rem; }
+    .tech-list {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+    }
+    .tech-tag {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.2rem 0.55rem;
+      font-size: 0.75rem;
+      color: var(--text2);
+      font-family: 'DM Mono', monospace;
+    }
 
-		<!-- start about -->
-		<div id="about" class="section">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6 col-xs-11 wow fadeInLeft" data-wow-delay="0.9s">
-						<h2>ABOUT ISAAC</h2>
-						<h4>MY STACK</h4>
-						<p>As a software developer, my skill set is around web applications development.</p>
-						<p>Highly adept
-							at interpreting UI/UX designs to realize very reponsive web applications.</p>
-					</div>
-					<div class="col-md-6 col-xs-11 wow fadeInRight" data-wow-delay="0.9s">
-						<span class="text-top">Angular <small>95%</small></span>
-							<div class="progress">
-								<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
-							</div>
-						<span>React <small>80%</small></span>
-							<div class="progress">
-								<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
-							</div>
+    /* ── SKILLS BARS ── */
+    #skills { background: var(--bg); }
+    .skills-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .skill-item { margin-bottom: 1.5rem; }
+    .skill-header { display: flex; justify-content: space-between; margin-bottom: 0.5rem; }
+    .skill-name { font-size: 0.88rem; color: var(--text); font-weight: 500; }
+    .skill-pct { font-size: 0.82rem; color: var(--text3); }
+    .skill-bar {
+      height: 4px;
+      background: var(--surface);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .skill-fill {
+      height: 100%;
+      border-radius: 2px;
+      transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+    }
+    .fill-fe { background: linear-gradient(90deg, var(--accent2), #a5b4fc); }
+    .fill-be { background: linear-gradient(90deg, var(--accent), #6ee7b7cc); }
+    .fill-other { background: linear-gradient(90deg, var(--accent3), #fda4af); }
+    .skills-aside h3 {
+      font-family: var(--font-head);
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .skills-aside p { color: var(--text2); margin-bottom: 1.5rem; font-size: 0.95rem; }
+    .exp-stat {
+      display: flex; align-items: baseline; gap: 0.75rem;
+      border-left: 2px solid var(--accent);
+      padding-left: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .exp-stat .num {
+      font-family: var(--font-head);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+    .exp-stat .label { color: var(--text2); font-size: 0.88rem; }
 
-						<span>Javascript <small>80%</small></span>
-							<div class="progress">
-								<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
-							</div>
+    /* ── PORTFOLIO ── */
+    #portfolio { background: var(--bg2); }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.2s;
+    }
+    .project-card:hover { border-color: var(--border2); transform: translateY(-4px); }
+    .project-card.featured {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .project-visual {
+      height: 200px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card.featured .project-visual { height: auto; min-height: 220px; }
+    .pv-stanbic { background: linear-gradient(135deg, #0a1628 0%, #112244 100%); }
+    .pv-eco { background: linear-gradient(135deg, #0d2318 0%, #1a4030 100%); }
+    .pv-twaa { background: linear-gradient(135deg, #1a0a28 0%, #2d1050 100%); }
+    .pv-cob { background: linear-gradient(135deg, #1a1228 0%, #2a1a40 100%); }
+    .pv-self { background: linear-gradient(135deg, #0a1828 0%, #0f2540 100%); }
+    .pv-pwa { background: linear-gradient(135deg, #0d2318 0%, #103520 100%); }
+    .pv-emoji { position: relative; z-index: 1; }
+    .pv-pattern {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .project-body { padding: 1.5rem; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.75rem; }
+    .p-tag {
+      font-size: 0.7rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .p-tag.angular { background: rgba(221,0,49,0.12); color: #ff6b82; border: 1px solid rgba(221,0,49,0.2); }
+    .p-tag.react { background: rgba(97,218,251,0.1); color: #61dafb; border: 1px solid rgba(97,218,251,0.2); }
+    .p-tag.nextjs { background: rgba(255,255,255,0.07); color: var(--text2); border: 1px solid var(--border2); }
+    .p-tag.java { background: rgba(248,152,32,0.1); color: #f89820; border: 1px solid rgba(248,152,32,0.2); }
+    .p-tag.dotnet { background: rgba(129,140,248,0.1); color: var(--accent2); border: 1px solid rgba(129,140,248,0.2); }
+    .p-tag.node { background: rgba(110,231,183,0.1); color: var(--accent); border: 1px solid rgba(110,231,183,0.2); }
+    .project-name {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    .project-desc { color: var(--text2); font-size: 0.88rem; line-height: 1.6; margin-bottom: 1rem; }
+    .project-meta {
+      display: flex; align-items: center; gap: 1rem;
+      font-size: 0.78rem; color: var(--text3);
+    }
+    .project-meta span { display: flex; align-items: center; gap: 0.3rem; }
 
-						<span>Java <small>80%</small></span>
-							<div class="progress">
-								<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
-							</div>
-						
-						<span>HTLM &AMP; CSS <small>90%</small></span>
-							<div class="progress">
-								<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
-							</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- end about -->
+    /* ── EXPERIENCE ── */
+    #experience { background: var(--bg); }
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: ''; position: absolute; left: 0; top: 0.5rem; bottom: 0;
+      width: 1px; background: var(--border2);
+    }
+    .tl-item { position: relative; margin-bottom: 3rem; }
+    .tl-dot {
+      position: absolute; left: -2.35rem; top: 0.4rem;
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--accent2);
+      border: 2px solid var(--bg);
+      box-shadow: 0 0 0 3px rgba(129,140,248,0.2);
+    }
+    .tl-period { font-size: 0.78rem; color: var(--accent); letter-spacing: 0.06em; margin-bottom: 0.3rem; text-transform: uppercase; }
+    .tl-role { font-family: var(--font-head); font-size: 1.15rem; font-weight: 700; margin-bottom: 0.1rem; }
+    .tl-company { color: var(--text2); font-size: 0.9rem; margin-bottom: 0.75rem; }
+    .tl-points { list-style: none; }
+    .tl-points li {
+      color: var(--text2);
+      font-size: 0.9rem;
+      padding-left: 1rem;
+      position: relative;
+      margin-bottom: 0.4rem;
+    }
+    .tl-points li::before { content: '—'; position: absolute; left: 0; color: var(--text3); }
+    .tl-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem; }
+    .tl-chip {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.15rem 0.5rem;
+      font-size: 0.72rem;
+      color: var(--text3);
+    }
 
-		<!-- start portfolio -->
-		<div id="portfolio" class="section">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h2 class="wow bounce">PORTFOLIO</h2>
-				</div>
-				<p>Some of the notable projects I have been privileged to work on include the following</p>
-				<div class="col-md-4 col-xs-6 wow fadeIn" data-wow-delay="0.6s">
-					<div class="portfolio-thumb">
-						<img src="images/biller.png" class="img-responsive" alt="portfolio img">
-							<div class="portfolio-overlay">
-								<h4>Stanbic Ebiller App</h4>
-							</div>
-					</div>
-				</div>
-				<div class="col-md-4 col-xs-6 wow fadeIn" data-wow-delay="0.6s">
-					<div class="portfolio-thumb">
-						<img src="images/eco-admin.png" class="img-responsive" alt="portfolio img">
-							<div class="portfolio-overlay">
-								<h4>Ecobank Onboarding Admin</h4>						
-							</div>
-					</div>
-				</div>
-				<div class="col-md-4 col-xs-6 wow fadeIn" data-wow-delay="0.6s">
-					<div class="portfolio-thumb">
-						<img src="images/twaa.png" class="img-responsive" alt="portfolio img">
-							<div class="portfolio-overlay">
-								<h4>Twaa</h4>	
+    /* ── CONTACT ── */
+    #contact { background: var(--bg2); }
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .contact-info h3 {
+      font-family: var(--font-head);
+      font-size: 1.5rem; font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .contact-info p { color: var(--text2); margin-bottom: 2rem; }
+    .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+    .c-link {
+      display: flex; align-items: center; gap: 0.75rem;
+      color: var(--text2);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .c-link:hover { color: var(--accent); }
+    .c-link-icon {
+      width: 36px; height: 36px;
+      border: 1px solid var(--border2);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border2);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--accent2); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    ::placeholder { color: var(--text3); }
 
-							</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-xs-6 wow fadeIn" data-wow-delay="0.6s">
-					<div class="portfolio-thumb">
-						<img src="images/cob.png" class="img-responsive" alt="portfolio img">
-							<div class="portfolio-overlay">
-								<h4>Stanbic Onboarding Admin</h4>
-							</div>
-					</div>
-				</div>	
-				<div class="col-md-6 col-xs-6 wow fadeIn" data-wow-delay="0.6s">
-					<div class="portfolio-thumb">
-						<img src="images/client.png" class="img-responsive" alt="portfolio img">
-							<div class="portfolio-overlay">
-								<h4>Stanbic Self Service App</h4>
-							</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-xs-6 wow fadeIn" data-wow-delay="0.6s">
-					<div class="portfolio-thumb">
-						<img src="images/pwa.png" class="img-responsive" alt="portfolio img">
-							<div class="portfolio-overlay">
-								<h4>Ecobank Customer App</h4>
-							</div>
-					</div>
-				</div>			
-			</div>
-		</div>
-	</div>
-	<!-- end portfolio -->
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 2rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    footer p { color: var(--text3); font-size: 0.82rem; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { color: var(--text3); font-size: 0.82rem; text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--accent); }
 
-		<!-- start contact -->
-		<div id="contact" class="section">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-5 col-lg-offset-1 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-						<address>
-							<p class="contact-title">CONTACT ME</p>
-							<p><i class="fa fa-phone"></i> 0729-176-560</p>
-							<p><i class="fa fa-envelope-o"></i> isaacmrongo@gmail.com</p>
-							<p><i class="fa fa-map-marker"></i> Nairobi, Kenya.</p>
-							<p><i class="fa fa-linkedin"></i><a href="https://www.linkedin.com/in/isaac-rabin-0a6208141/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
-							<p><i class="fa fa-github"></i> <a href="https://github.com/isaacrabin" target="_blank" rel="noopener noreferrer">GitHub</a></p>
-						</address>
-					</div>
-					<div class="col-lg-6 col-md-6 col-xs-10 wow fadeInUp" data-wow-delay="0.6s">
-						<form role="form" method="post" action="#">
-							<input name="name" type="text" class="form-control" id="name" placeholder="Your Name">
-							<input name="email" type="email" class="form-control" id="email" placeholder="Your Email">
-							<textarea name="message" rows="5" class="form-control" id="message" placeholder="Your Message"></textarea>
-							<input name="send" type="submit" class="form-control" id="send" value="SEND ME">
-						</form>
-					</div>
-					<div class="col-md-1 col-sm-1"></div>
-				</div>
-			</div>
-		</div>
-		<!-- end contact -->
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      nav ul { display: none; }
+      #hero, section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .skills-layout, .contact-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .project-card.featured { grid-template-columns: 1fr; }
+      footer { flex-direction: column; text-align: center; padding: 1.5rem; }
+    }
+  </style>
 
-		<!-- start footer -->
-		<footer>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 wow fadeIn" data-wow-delay="0.9s">
-						<p>Copyright &copy; 2023 Isaac Mrongo Personal Profile </p>                       
-                       
-						<hr>
-						<ul class="social-icon">
-							<li><a href="#" class="fa fa-facebook"></a></li>
-							<li><a href="#" class="fa fa-twitter"></a></li>
-							<li><a href="#" class="fa fa-instagram"></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</footer>
-		<!-- end footer -->
+</head>
+<body>
 
-	</div>
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#hero">IR<span>.</span></a>
+  <ul>
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+  </ul>
+</nav>
 
-		<!-- jQuery -->
-		<script src="js/jquery.js"></script>
-		<!-- bootstrap -->
-		<script src="js/bootstrap.min.js"></script>
-		<!-- fullpage -->
-		<script src="js/jquery.fullPage.js"></script>
-		<!-- smoothScroll -->
-		<script src="js/smoothscroll.js"></script>
-		<!-- wow -->
-		<script src="js/wow.min.js"></script>
-		<!-- text rotater -->
-		<script src="js/jquery.simple-text-rotator.js"></script>
-		<!-- custom -->
-		<script src="js/custom.js"></script>
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">Available for new opportunities</div>
+    <h1 class="hero-name wow bounce">
+      Isaac <span class="line2">Rabin.</span>
+    </h1>
+    <p class="hero-title">Full-Stack Software Engineer &nbsp;·&nbsp; <strong>6+ years</strong></p>
+    <p class="hero-desc">
+      Results-driven Full-Stack Software Engineer with experience in designing and delivering and technical execution from requirements analysis and system architecture to CI/CD automation and production deployment. Adept at leading cross-functional teams, mentoring engineers, and driving measurable improvements in application reliability, deployment frequency, and developer productivity within Agile environments.
+    </p>
+    <div class="hero-stack">
+      <span class="stack-chip">React</span>
+      <span class="stack-chip">Angular</span>
+      <span class="stack-chip">Next.js</span>
+      <span class="stack-chip">Node.js</span>
+      <span class="stack-chip">Java / Spring Boot</span>
+      <span class="stack-chip">.NET / C#</span>
+      <span class="stack-chip">TypeScript</span>
+      <span class="stack-chip">PostgreSQL</span>
+      <span class="stack-chip">Docker</span>
+      <span class="stack-chip">CI/CD</span>
+    </div>
+    <div class="hero-actions">
+      <a href="#portfolio" class="btn-primary">View My Work</a>
+      <a href="#contact" class="btn-outline">Get In Touch</a>
+    </div>
+  </div>
+  </div>
+</section>
 
-	</body>
+<!-- EXPERTISE -->
+<section id="expertise">
+  <div class="container">
+    <p class="section-tag">What I Do</p>
+    <h2 class="section-title">Full-Stack, End-to-End.</h2>
+    <p class="section-sub">I bridge frontend experience and backend infrastructure — delivering complete, production-ready solutions.</p>
+    <div class="expertise-grid">
+      <div class="expertise-card fe">
+        <span class="card-icon">🖥</span>
+        <h3 class="card-title">Frontend Engineering</h3>
+        <p class="card-desc">Pixel-perfect, performant UIs built for scale. I translate complex UX designs into maintainable, tested component architectures.</p>
+        <div class="tech-list">
+          <span class="tech-tag">React 18</span>
+          <span class="tech-tag">Next.js 14</span>
+          <span class="tech-tag">Angular 17</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">RxJS</span>
+          <span class="tech-tag">NgRx</span>
+          <span class="tech-tag">Redux Toolkit</span>
+          <span class="tech-tag">Tailwind CSS</span>
+          <span class="tech-tag">Storybook</span>
+          <span class="tech-tag">Cypress</span>
+        </div>
+      </div>
+      <div class="expertise-card be">
+        <span class="card-icon">⚙️</span>
+        <h3 class="card-title">Backend Engineering</h3>
+        <p class="card-desc">Resilient, scalable APIs and microservices. I design systems that handle real-world load with clean domain boundaries.</p>
+        <div class="tech-list">
+          <span class="tech-tag">Java 17 / Spring Boot</span>
+          <span class="tech-tag">.NET 8 / C#</span>
+          <span class="tech-tag">Node.js / Express</span>
+          <span class="tech-tag">REST APIs</span>
+          <span class="tech-tag">GraphQL</span>
+          <span class="tech-tag">Microservices</span>
+          <span class="tech-tag">PostgreSQL</span>
+          <span class="tech-tag">MongoDB</span>
+          <span class="tech-tag">Redis</span>
+          <span class="tech-tag">RabbitMQ</span>
+        </div>
+      </div>
+      <div class="expertise-card devops">
+        <span class="card-icon">🚀</span>
+        <h3 class="card-title">DevOps & Architecture</h3>
+        <p class="card-desc">From Dockerfile to production. I set up pipelines, monitoring, and infrastructure that keep teams shipping with confidence.</p>
+        <div class="tech-list">
+          <span class="tech-tag">Docker</span>
+          <span class="tech-tag">Kubernetes</span>
+          <span class="tech-tag">GitHub Actions</span>
+          <span class="tech-tag">Jenkins</span>
+          <span class="tech-tag">AWS</span>
+          <span class="tech-tag">Azure</span>
+          <span class="tech-tag">Terraform</span>
+          <span class="tech-tag">Agile / Scrum</span>
+          <span class="tech-tag">System Design</span>
+          <span class="tech-tag">Tech Leadership</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="skills-layout">
+      <div>
+        <p class="section-tag">Proficiency</p>
+        <h2 class="section-title">Tech Stack</h2>
+        <p class="section-sub" style="margin-bottom: 2rem;">Core technologies I rely on to ship production software.</p>
+
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">Angular</span><span class="skill-pct">95%</span></div>
+          <div class="skill-bar"><div class="skill-fill fill-fe" style="width:95%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">React / Next.js</span><span class="skill-pct">88%</span></div>
+          <div class="skill-bar"><div class="skill-fill fill-fe" style="width:90%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">TypeScript / JavaScript</span><span class="skill-pct">90%</span></div>
+          <div class="skill-bar"><div class="skill-fill fill-fe" style="width:90%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">Java / Spring Boot</span><span class="skill-pct">82%</span></div>
+          <div class="skill-bar"><div class="skill-fill fill-be" style="width:90%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">.NET / C#</span><span class="skill-pct">78%</span></div>
+          <div class="skill-bar"><div class="skill-fill fill-be" style="width:90%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">Node.js / APIs</span><span class="skill-pct">85%</span></div>
+          <div class="skill-bar"><div class="skill-fill fill-be" style="width:90%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span class="skill-name">DevOps / CI-CD / Docker</span><span class="skill-pct">80%</span></div>
+          <div class="skill-bar"><div class="skill-fill fill-other" style="width:83%"></div></div>
+        </div>
+      </div>
+
+      <div class="skills-aside">
+        <h3>By the numbers</h3>
+        <p>Six years of shipping real software for financial institutions and startups across East Africa and beyond.</p>
+        <div class="exp-stat"><span class="num">6+</span><span class="label">years professional experience</span></div>
+        <div class="exp-stat"><span class="num">10+</span><span class="label">production applications shipped</span></div>
+        <div class="exp-stat"><span class="num">4</span><span class="label">major banking platforms delivered</span></div>
+        <div class="exp-stat"><span class="num">3</span><span class="label">engineering teams led</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="container">
+    <p class="section-tag">Selected Work</p>
+    <h2 class="section-title">Projects</h2>
+    <p class="section-sub">Production systems I've designed, built, and shipped — mostly in the fintech and banking space.</p>
+
+    <div class="portfolio-grid">
+
+      <div class="project-card featured">
+        <div class="project-visual pv-stanbic">
+          <div class="pv-pattern"></div>
+          <span class="pv-emoji">🏦</span>
+        </div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="p-tag angular">Angular</span>
+            <span class="p-tag java">Spring Boot</span>
+            <span class="p-tag dotnet">.NET</span>
+          </div>
+          <h3 class="project-name">Stanbic eBiller Platform</h3>
+          <p class="project-desc">
+            End-to-end e-billing solution for Stanbic Bank. Built the Angular SPA and co-designed the Java Spring Boot microservices layer. Handles bill presentment, payment orchestration, and reconciliation for thousands of daily transactions. Led architecture decisions and code reviews throughout delivery.
+          </p>
+          <div class="project-meta">
+            <span>🏛 Banking / Fintech</span>
+            <span>📦 Microservices</span>
+            <span>⚡ High Availability</span>
+          </div>
+          <div class="tl-stack" style="margin-top:1rem">
+            <span class="tl-chip">Angular 14</span>
+            <span class="tl-chip">Java 11</span>
+            <span class="tl-chip">Spring Boot</span>
+            <span class="tl-chip">REST API</span>
+            <span class="tl-chip">PostgreSQL</span>
+            <span class="tl-chip">Redis</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-visual pv-eco">
+          <div class="pv-pattern"></div>
+          <span class="pv-emoji">🌍</span>
+        </div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="p-tag react">React</span>
+            <span class="p-tag node">Node.js</span>
+          </div>
+          <h3 class="project-name">Ecobank Onboarding Admin</h3>
+          <p class="project-desc">Internal admin dashboard for managing customer onboarding workflows across multiple African markets. Real-time status tracking, KYC queue management, and role-based access control.</p>
+          <div class="tl-stack">
+            <span class="tl-chip">React</span>
+            <span class="tl-chip">Node.js</span>
+            <span class="tl-chip">MongoDB</span>
+            <span class="tl-chip">RBAC</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-visual pv-cob">
+          <div class="pv-pattern"></div>
+          <span class="pv-emoji">📋</span>
+        </div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="p-tag angular">Angular</span>
+            <span class="p-tag dotnet">.NET / C#</span>
+          </div>
+          <h3 class="project-name">Stanbic Onboarding Admin</h3>
+          <p class="project-desc">Back-office portal for processing new customer applications. Built Angular front end and .NET C# APIs. Reduced onboarding processing time through automated workflow routing and document validation.</p>
+          <div class="tl-stack">
+            <span class="tl-chip">Angular</span>
+            <span class="tl-chip">.NET 6</span>
+            <span class="tl-chip">C#</span>
+            <span class="tl-chip">SQL Server</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-visual pv-self">
+          <div class="pv-pattern"></div>
+          <span class="pv-emoji">📱</span>
+        </div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="p-tag nextjs">Next.js</span>
+            <span class="p-tag node">Node.js</span>
+          </div>
+          <h3 class="project-name">Stanbic Self-Service App</h3>
+          <p class="project-desc">Customer-facing self-service portal built with Next.js for SSR performance and SEO. Integrated with banking core APIs via a Node.js gateway. Features account management, transfers, and statements.</p>
+          <div class="tl-stack">
+            <span class="tl-chip">Next.js</span>
+            <span class="tl-chip">Node.js</span>
+            <span class="tl-chip">TypeScript</span>
+            <span class="tl-chip">REST</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-visual pv-twaa">
+          <div class="pv-pattern"></div>
+          <span class="pv-emoji">🔗</span>
+        </div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="p-tag react">React</span>
+            <span class="p-tag java">Spring Boot</span>
+          </div>
+          <h3 class="project-name">Twaa Platform</h3>
+          <p class="project-desc">Full-stack web platform with a React SPA front end and Java Spring Boot back end. Delivered end-to-end, including API design, database schema, and CI/CD pipeline setup.</p>
+          <div class="tl-stack">
+            <span class="tl-chip">React</span>
+            <span class="tl-chip">Spring Boot</span>
+            <span class="tl-chip">PostgreSQL</span>
+            <span class="tl-chip">Docker</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-visual pv-pwa">
+          <div class="pv-pattern"></div>
+          <span class="pv-emoji">💳</span>
+        </div>
+        <div class="project-body">
+          <div class="project-tags">
+            <span class="p-tag angular">Angular PWA</span>
+            <span class="p-tag java">Java</span>
+          </div>
+          <h3 class="project-name">Ecobank Customer App</h3>
+          <p class="project-desc">Progressive Web App for Ecobank retail customers. Offline-first architecture, push notifications, and native-like performance on mobile. Integrated with core banking microservices.</p>
+          <div class="tl-stack">
+            <span class="tl-chip">Angular PWA</span>
+            <span class="tl-chip">Service Workers</span>
+            <span class="tl-chip">Java APIs</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <p class="section-tag">Career</p>
+    <h2 class="section-title">Experience</h2>
+    <p class="section-sub">A track record of delivering in high-stakes, high-scale environments.</p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot" style="background:var(--accent)"></div>
+        <p class="tl-period">2022 – Present</p>
+        <h3 class="tl-role">Senior Full-Stack Engineer</h3>
+        <p class="tl-company">Stanbic Bank Kenya</p>
+        <ul class="tl-points">
+          <li>Architected and led delivery of the eBiller and self-service platforms serving millions of transactions monthly</li>
+          <li>Introduced CI/CD pipelines (GitHub Actions + Docker) cutting release cycle from 2 weeks to 2 days</li>
+          <li>Mentored 4 mid-level engineers; conducted architecture reviews and enforced coding standards</li>
+          <li>Collaborated directly with product owners and business analysts to translate requirements into technical specs</li>
+        </ul>
+        <div class="tl-stack">
+          <span class="tl-chip">Angular</span><span class="tl-chip">React</span><span class="tl-chip">Next.js</span><span class="tl-chip">Java / Spring Boot</span><span class="tl-chip">.NET / C#</span><span class="tl-chip">Docker</span><span class="tl-chip">PostgreSQL</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot" style="background:var(--accent2)"></div>
+        <p class="tl-period">2020 – 2022</p>
+        <h3 class="tl-role">Full-Stack Developer</h3>
+        <p class="tl-company">Ecobank Transnational</p>
+        <ul class="tl-points">
+          <li>Delivered the customer PWA and onboarding admin portal across 5 African markets</li>
+          <li>Built Node.js API gateway integrating Angular front ends with core banking systems</li>
+          <li>Reduced onboarding drop-off rate by 30% through UX-driven refactoring</li>
+        </ul>
+        <div class="tl-stack">
+          <span class="tl-chip">Angular PWA</span><span class="tl-chip">React</span><span class="tl-chip">Node.js</span><span class="tl-chip">Java</span><span class="tl-chip">MongoDB</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot" style="background:var(--accent3)"></div>
+        <p class="tl-period">2018 – 2020</p>
+        <h3 class="tl-role">Software Developer</h3>
+        <p class="tl-company">Early Career</p>
+        <ul class="tl-points">
+          <li>Developed Angular and React applications for internal business tools</li>
+          <li>Built REST APIs with Java Spring Boot and .NET C# for various client projects</li>
+          <li>Gained hands-on experience with Agile delivery, code reviews, and software testing</li>
+        </ul>
+        <div class="tl-stack">
+          <span class="tl-chip">Angular</span><span class="tl-chip">React</span><span class="tl-chip">Spring Boot</span><span class="tl-chip">.NET</span><span class="tl-chip">SQL</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="section-tag">Get In Touch</p>
+    <h2 class="section-title">Let's Build Something.</h2>
+    <div class="contact-layout">
+      <div class="contact-info">
+        <p>Open to senior and  full-stack roles, as well as consulting engagements. Based in Nairobi, open to remote.</p>
+        <div class="contact-links">
+          <a href="tel:0729176560" class="c-link">
+            <span class="c-link-icon">📞</span>
+            <span>0729-176-560</span>
+          </a>
+          <a href="mailto:isaacmrongo@gmail.com" class="c-link">
+            <span class="c-link-icon">✉️</span>
+            <span>isaacmrongo@gmail.com</span>
+          </a>
+          <a href="https://www.linkedin.com/in/isaac-rabin-0a6208141/" target="_blank" rel="noopener" class="c-link">
+            <span class="c-link-icon">💼</span>
+            <span>linkedin.com/in/isaac-rabin</span>
+          </a>
+          <!-- <a href="https://github.com/isaacrabin" target="_blank" rel="noopener" class="c-link">
+            <span class="c-link-icon">🐙</span>
+            <span>github.com/isaacrabin</span>
+          </a> -->
+          <a class="c-link">
+            <span class="c-link-icon">📍</span>
+            <span>Nairobi, Kenya</span>
+          </a>
+        </div>
+      </div>
+      <div>
+        <form class="contact-form" action="mailto:isaacmrongo@gmail.com" method="post">
+          <div class="form-group">
+            <input type="text" placeholder="Your name" name="name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Your email" name="email" required>
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="Subject" name="subject">
+          </div>
+          <div class="form-group">
+            <textarea placeholder="Tell me about the role or project..." name="message" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="align-self:flex-start">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2024 Isaac Rabin · Full-Stack Software Engineer · Nairobi, Kenya</p>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/isaac-rabin-0a6208141/" target="_blank">LinkedIn</a>
+    <a href="https://github.com/isaacrabin" target="_blank">GitHub</a>
+    <a href="mailto:isaacmrongo@gmail.com">Email</a>
+  </div>
+</footer>
+<script src="js/jquery.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/jquery.simple-text-rotator.js"></script>
+
+</body>
 </html>
